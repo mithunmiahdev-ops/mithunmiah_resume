@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mithun Miah — Data Entry &amp; Graphic Design Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0f0e0d; --ink-soft: #4a4742; --ink-muted: #8a8580;
+  --cream: #f9f7f4; --warm-white: #fefcfa;
+  --accent: #c9622f; --accent-lt: #f0ddd3; --accent-dk: #8a3e1a;
+  --border: #e5e0d8;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --max-w: 1100px; --section-py: 100px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--warm-white); color: var(--ink); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, box-shadow 0.3s; }
+.nav.scrolled { background: rgba(254,252,250,0.93); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border); }
+.nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--accent); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.btn-nav { background: var(--ink) !important; color: var(--warm-white) !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
+.btn-nav:hover { background: var(--accent) !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; background: var(--cream); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; animation: drift 12s ease-in-out infinite alternate; }
+.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #e8c4b0 0%, transparent 70%); top: -10%; left: -10%; }
+.orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #d4c5a9 0%, transparent 70%); bottom: -10%; right: -5%; animation-delay: -6s; }
+@keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,30px) scale(1.1); } }
+.grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.4; }
+.hero-content { position: relative; z-index: 1; max-width: 750px; }
+.hero-badge { display: inline-block; background: var(--accent-lt); color: var(--accent-dk); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; border: 1px solid rgba(201,98,47,0.25); }
+.hero-name { font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 7rem); line-height: 1; color: var(--ink); margin-bottom: 1.2rem; letter-spacing: -0.02em; }
+.hero-name em { color: var(--accent); font-style: italic; }
+.hero-tagline { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1.5rem; }
+.hero-summary { font-size: 1.1rem; color: var(--ink-soft); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.8; }
+.hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--accent); color: white; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 16px rgba(201,98,47,0.3); }
+.btn-primary:hover { background: var(--accent-dk); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--ink); padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1.5px solid var(--border); transition: border-color 0.2s, color 0.2s; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.hero-stats { position: relative; z-index: 1; display: flex; align-items: center; gap: 2.5rem; margin-top: 4rem; padding: 1.5rem 3rem; background: white; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.stat { text-align: center; }
+.stat-num { display: block; font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; }
+.stat-label { display: block; font-size: 0.75rem; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.3rem; }
+.stat-divider { width: 1px; height: 40px; background: var(--border); }
+
+/* SECTIONS */
+.section { padding: var(--section-py) 2rem; }
+.section:nth-child(even) { background: var(--cream); }
+.container { max-width: var(--max-w); margin: 0 auto; }
+.section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+.section-heading { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); color: var(--ink); line-height: 1.15; margin-bottom: 3rem; }
+.section-heading em { color: var(--accent); font-style: italic; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text p { color: var(--ink-soft); margin-bottom: 1rem; font-size: 1.025rem; line-height: 1.8; }
+.detail-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.detail-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+.detail-list li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+.detail-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.detail-key { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); white-space: nowrap; }
+.detail-val { font-size: 0.9rem; color: var(--ink-soft); text-align: right; }
+
+/* EXPERIENCE */
+.exp-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; }
+.exp-title { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); margin-bottom: 0.3rem; }
+.exp-org { font-size: 0.875rem; color: var(--ink-muted); }
+.exp-duration { text-align: right; white-space: nowrap; }
+.exp-dates { display: block; font-size: 0.875rem; font-weight: 600; color: var(--accent); }
+.exp-years { display: block; font-size: 0.8rem; color: var(--ink-muted); margin-top: 0.25rem; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.exp-bullets li { padding-left: 1.5rem; position: relative; color: var(--ink-soft); font-size: 0.975rem; }
+.exp-bullets li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.cert-card { display: flex; align-items: center; gap: 1.5rem; background: linear-gradient(135deg, var(--accent-lt), #fef9f6); border: 1px solid rgba(201,98,47,0.2); border-radius: 16px; padding: 1.5rem 2rem; }
+.cert-icon { font-size: 2rem; }
+.cert-body h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); margin-bottom: 0.25rem; }
+.cert-body p { font-size: 0.875rem; color: var(--ink-soft); }
+.cert-grade { margin-left: auto; white-space: nowrap; background: var(--accent); color: white; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.875rem; font-weight: 700; }
+
+/* SKILLS */
+.skills-section { background: var(--ink) !important; }
+.skills-section .section-label { color: var(--accent-lt); }
+.skills-section .section-heading { color: white; }
+.skills-section .section-heading em { color: #e8a07a; }
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.skill-group { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.75rem; transition: background 0.2s; }
+.skill-group:hover { background: rgba(255,255,255,0.1); }
+.skill-group-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.skill-group h3 { color: white; font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-tags span { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.8rem; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); }
+
+/* EDUCATION */
+.edu-timeline { display: flex; flex-direction: column; }
+.edu-item { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; position: relative; padding-bottom: 2.5rem; }
+.edu-item::after { content: ''; position: absolute; left: 39px; top: 28px; bottom: 0; width: 1px; background: var(--border); }
+.edu-item:last-child::after { display: none; }
+.edu-year { font-family: var(--font-display); font-size: 1rem; color: var(--accent); padding-top: 6px; position: relative; z-index: 1; }
+.edu-year::before { content: ''; display: block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--warm-white); box-shadow: 0 0 0 2px var(--accent); position: absolute; right: -4px; top: 10px; }
+.edu-content { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.edu-content h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.3rem; }
+.edu-inst { font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 0.75rem; }
+.edu-grade { background: var(--accent-lt); color: var(--accent-dk); font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 100px; }
+
+/* REFERENCES */
+.ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.ref-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.ref-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; flex-shrink: 0; }
+.ref-info h4 { font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 0.25rem; }
+.ref-info p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+.ref-info a { display: block; font-size: 0.85rem; color: var(--accent); text-decoration: none; margin-top: 0.4rem; }
+.ref-info a:hover { text-decoration: underline; }
+
+/* CONTACT */
+.contact-sub { color: var(--ink-soft); max-width: 480px; margin-bottom: 3rem; font-size: 1.05rem; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.contact-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; text-decoration: none; color: inherit; transition: box-shadow 0.2s, transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.contact-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.contact-icon { font-size: 1.75rem; }
+.contact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink-muted); }
+.contact-value { font-size: 0.95rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
+
+/* FOOTER */
+.footer { background: var(--ink); padding: 2rem; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+.reveal:nth-child(5) { transition-delay: 0.4s; }
+.reveal:nth-child(6) { transition-delay: 0.5s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  :root { --section-py: 70px; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--warm-white); padding: 1rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem; }
+  .hamburger { display: flex; }
+  .hero-stats { flex-direction: column; gap: 1.5rem; padding: 1.5rem; }
+  .stat-divider { width: 40px; height: 1px; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .ref-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .exp-header { flex-direction: column; gap: 0.5rem; }
+  .exp-duration { text-align: left; }
+  .edu-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+  .cert-card { flex-direction: column; }
+  .cert-grade { margin-left: 0; }
+  .footer-inner { flex-direction: column; gap: 0.5rem; align-items: center; }
+}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">MM</span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="btn-nav">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">Available for Opportunities</div>
+      <h1 class="hero-name reveal">Mithun<br /><em>Miah</em></h1>
+      <p class="hero-tagline reveal">Data Entry Operator &nbsp;·&nbsp; Computer Operator &nbsp;·&nbsp; Graphic Designer</p>
+      <p class="hero-summary reveal">7+ years delivering accurate, professional results for international clients — from high-volume data processing to polished graphic design.</p>
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="#experience" class="btn-ghost">View Work</a>
+      </div>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">A+</span><span class="stat-label">BTEB Certification</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">5.00</span><span class="stat-label">SSC GPA</span></div>
+    </div>
+  </header>
+
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-label">01 — About</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-heading">A dedicated professional <em>you can rely on</em></h2>
+          <p>With over 7 years of experience in data entry, computer operations, and graphic design, I bring precision, discipline, and a commitment to excellence in every project.</p>
+          <p>I have successfully served international clients remotely, managing high-volume data processing tasks and creating compelling design materials — all while meeting tight deadlines with consistent accuracy.</p>
+          <p>Currently seeking a position in a government, NGO, or reputable organization where I can contribute meaningfully with honesty and professionalism.</p>
+        </div>
+        <div class="about-details">
+          <div class="detail-card">
+            <ul class="detail-list">
+              <li><span class="detail-key">Date of Birth</span><span class="detail-val">26 November 1998</span></li>
+              <li><span class="detail-key">Nationality</span><span class="detail-val">Bangladeshi</span></li>
+              <li><span class="detail-key">Marital Status</span><span class="detail-val">Married</span></li>
+              <li><span class="detail-key">Religion</span><span class="detail-val">Islam</span></li>
+              <li><span class="detail-key">Location</span><span class="detail-val">Khalisha, Rajarhat, Kurigram</span></li>
+              <li><span class="detail-key">Languages</span><span class="detail-val">Bengali (Native) · English (Conversational)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-label">02 — Experience</div>
+      <h2 class="section-heading">Work <em>Experience</em></h2>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <h3 class="exp-title">Freelance Computer Operator, Data Entry &amp; Graphic Designer</h3>
+            <p class="exp-org">Self-Employed · International Remote Work</p>
+          </div>
+          <div class="exp-duration">
+            <span class="exp-dates">Jan 2018 – Present</span>
+            <span class="exp-years">7+ Years</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Performed high-volume, accurate data entry with consistently low error rates for international clients</li>
+          <li>Operated computer systems for file management, data processing, and document formatting tasks</li>
+          <li>Prepared professional documents, reports, and digital files using MS Word, Excel, and PDF tools</li>
+          <li>Designed graphics including banners, posters, and official materials using Photoshop and Canva</li>
+          <li>Maintained organized digital records ensuring easy retrieval, accuracy, and data confidentiality</li>
+          <li>Managed multiple tasks simultaneously, consistently meeting deadlines with professionalism</li>
+        </ul>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-body">
+          <h4>Computer Office Application</h4>
+          <p>Bangladesh Technical Education Board (BTEB), Dhaka · 6 Months · July 2022</p>
+        </div>
+        <div class="cert-grade">Grade A+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-label">03 — Skills</div>
+      <h2 class="section-heading">Tools &amp; <em>Expertise</em></h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-icon">💻</div>
+          <h3>Office &amp; Computer</h3>
+          <div class="skill-tags">
+            <span>MS Word</span><span>MS Excel</span><span>MS PowerPoint</span>
+            <span>Google Docs</span><span>Google Sheets</span><span>Google Drive</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-icon">📊</div>
+          <h3>Data Entry</h3>
+          <div class="skill-tags">
+            <span>Fast &amp; Accurate Typing</span><span>Online Form Filling</span>
+            <span>PDF to Word/Excel</span><span>Document Processing</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-icon">🎨</div>
+          <h3>Graphic Design</h3>
+          <div class="skill-tags">
+            <span>Adobe Photoshop</span><span>Canva</span><span>Logo Design</span>
+            <span>Banner &amp; Poster Design</span><span>Social Media Graphics</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-icon">🌐</div>
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>Bengali — Native</span><span>English — Conversational</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section education" id="education">
+    <div class="container">
+      <div class="section-label">04 — Education</div>
+      <h2 class="section-heading">Academic <em>Background</em></h2>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-year">2023</div>
+          <div class="edu-content">
+            <h3>Diploma in Engineering — Computer Technology</h3>
+            <p class="edu-inst">Vision Polytechnic Institute, Kurigram</p>
+            <span class="edu-grade">GPA 3.54</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2016</div>
+          <div class="edu-content">
+            <h3>HSC — Business Studies</h3>
+            <p class="edu-inst">Mir Ismail Hossain College, Rajarhat</p>
+            <span class="edu-grade">GPA 3.92</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2014</div>
+          <div class="edu-content">
+            <h3>SSC — Business Studies</h3>
+            <p class="edu-inst">Rajarhat Pilot High School</p>
+            <span class="edu-grade">GPA 5.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section references" id="references">
+    <div class="container">
+      <div class="section-label">05 — References</div>
+      <h2 class="section-heading">Professional <em>References</em></h2>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-avatar">AR</div>
+          <div class="ref-info">
+            <h4>Md. Abdur Rahim</h4>
+            <p>Govt. Employee — Office Support Staff</p>
+            <p>UNO Office</p>
+            <a href="tel:01733630460">01733-630460</a>
+            <a href="mailto:arahim9342@gmail.com">arahim9342@gmail.com</a>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-avatar">NH</div>
+          <div class="ref-info">
+            <h4>Nasim Hasan</h4>
+            <p>Assistant Teacher, Govt. Primary School</p>
+            <p>Member, Badhon Blood Donation Organisation</p>
+            <a href="tel:01750843111">01750-843111</a>
+            <a href="mailto:nasimrc98@gmail.com">nasimrc98@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-label">06 — Contact</div>
+      <h2 class="section-heading">Let's <em>Connect</em></h2>
+      <p class="contact-sub">Available for data entry, computer operations, graphic design, or full-time roles. Reach out and I'll respond promptly.</p>
+      <div class="contact-grid">
+        <a href="tel:+8801796717368" class="contact-card">
+          <span class="contact-icon">📞</span>
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+880 1796-717368</span>
+        </a>
+        <a href="mailto:mithunmiahcse@gmail.com" class="contact-card">
+          <span class="contact-icon">✉️</span>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">mithunmiahcse@gmail.com</span>
+        </a>
+        <div class="contact-card">
+          <span class="contact-icon">📍</span>
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Khalisha, Rajarhat – 5610<br />Kurigram, Bangladesh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Mithun Miah · All rights reserved</span>
+      <span>Built with care</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Card animations
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          cardObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.exp-card, .skill-group, .edu-item, .ref-card, .contact-card, .cert-card, .detail-card, .about-text p').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`;
+      cardObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
